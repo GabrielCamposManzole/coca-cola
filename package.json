@@ -1,0 +1,26 @@
+{
+  "name": "coca-cola",
+  "version": "1.0.0",
+  "description": "Este projeto tem como objetivo fazer cadastro de clientes que tem a necessidade de facilitar a demanda de produtos da coca cola no seu comercio.",
+  "main": "teste.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GabrielCamposManzole/coca-cola.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GabrielCamposManzole/coca-cola/issues"
+  },
+  "homepage": "https://github.com/GabrielCamposManzole/coca-cola#readme",
+  "dependencies": {
+    "jquery": "^3.7.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+  }
+}

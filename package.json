@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/GabrielCamposManzole/coca-cola#readme",
   "dependencies": {
-    "jquery": "^3.7.1"
+    "jquery": "^3.7.1",
+    "jquery-mask-plugin": "^1.14.16",
+    "n": "^9.2.1"
   },
   "devDependencies": {
     "gh-pages": "^6.1.1"

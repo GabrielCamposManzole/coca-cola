@@ -13,15 +13,40 @@ main {
     object-fit: cover;
 }
 
-h4 {
+h5 {
     font-size: clamp(1.3rem, 2vw, 2.6rem);
 }
 
-.ca {
-    width: 18rem;
+.card img {
+    height: 200px;
+    object-fit: contain;
 }
 
 .test {
     display: flex;
     align-items: center;
+}
+
+.product-details {
+    flex-grow: 1;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.quantity-btn {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#quantity-input {
+    width: 7em;
 }

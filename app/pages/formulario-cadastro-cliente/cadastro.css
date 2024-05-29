@@ -1,0 +1,30 @@
+main {
+    padding: 3.8rem;
+}
+
+.flecha {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+button {
+    gap: 2em;
+}
+
+a:hover {
+    text-decoration: underline;
+    /* Adiciona o sublinhado ao passar o mouse */
+}
+
+footer {
+    height: 8rem;
+    margin-top: auto;
+    background-color: #FF1741;
+    text-align: center;
+    padding: 20px;
+
+}
+
+footer a {
+    color: #212529;
+}

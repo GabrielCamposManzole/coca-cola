@@ -8,6 +8,7 @@ main {
     flex: 1 0 auto;
 }
 
+
 .imagem-header {
     height: 200px;
     object-fit: cover;
@@ -27,6 +28,11 @@ h5 {
     align-items: center;
 }
 
+.card {
+
+    border: 2px black solid;
+}
+
 .product-details {
     flex-grow: 1;
 }
@@ -35,7 +41,7 @@ h5 {
     display: flex;
     align-items: center;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 .quantity-btn {
@@ -45,8 +51,15 @@ h5 {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    border-radius: 25%;
+    font-size: 20px;
+    font-weight: bolder;
 }
 
 #quantity-input {
     width: 7em;
+    text-align: center;
+    font-weight: bolder;
+    border-radius: 2em;
+    border: solid;
 }

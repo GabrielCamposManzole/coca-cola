@@ -11,52 +11,56 @@
 </head>
 
 <body>
-    <div class="flecha">
-        <img src="https://staextb2cprdeus201.blob.core.windows.net/b2c/Vector-back.svg">
-    </div>
-    <main>
-        <div class="container ">
-            <div>
-                <img src="https://staextb2cprdeus201.blob.core.windows.net/b2c/Juntos+.svg" alt="#####">
-                <h2 class="mb-4">Formulário de Cadastro</h2>
-                <form id="cadastroForm">
-                    <div class="mb-3">
-                        <label for="razaoSocial" class="form-label">Razão Social</label>
-                        <input type="text" class="form-control" id="razaoSocial" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="cnpj" class="form-label">CNPJ</label>
-                        <input type="number" class="form-control" id="cnpj" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="endereco" class="form-label">Endereço</label>
-                        <input type="text" class="form-control" id="endereco" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="telefone" class="form-label">Telefone</label>
-                        <input type="tel" class="form-control" id="telefone" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="senha" class="form-label">Senha</label>
-                        <input type="password" class="form-control" id="senha" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="confirmacaoSenha" class="form-label">Confirmação de Senha</label>
-                        <input type="password" class="form-control" id="confirmacaoSenha" required>
-                    </div>
-                    <div class="d-grid gap-5 d-md-flex justify-content-md-start">
-                        <button type="submit" class="btn btn-primary">Cadastrar</button>
-                        <button type="button" class="btn btn-secondary" id="limparBtn">Limpar</button>
-                    </div>
-                </form>
-                <div id="result" class="mt-4"></div>
+    <div class="wrapper">
+        <div class="flecha">
+            <img src="https://staextb2cprdeus201.blob.core.windows.net/b2c/Vector-back.svg">
+        </div>
+        <main>
+            <div class="container content">
+                <div>
+                    <img src="https://staextb2cprdeus201.blob.core.windows.net/b2c/Juntos+.svg" alt="#####">
+                    <h2 class="mb-4">Formulário de Cadastro</h2>
+                    <form id="cadastroForm">
+                        <div class="mb-3">
+                            <label for="razaoSocial" class="form-label">Razão Social</label>
+                            <input type="text" class="form-control" id="razaoSocial" required autofocus>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cnpj" class="form-label">CNPJ</label>
+                            <input type="number" class="form-control" id="cnpj" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="endereco" class="form-label">Endereço</label>
+                            <input type="text" class="form-control" id="endereco" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="telefone" class="form-label">Telefone</label>
+                            <input type="tel" class="form-control" id="telefone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="senha" class="form-label">Senha</label>
+                            <input type="password" class="form-control" id="senha" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmacaoSenha" class="form-label">Confirmação de Senha</label>
+                            <input type="password" class="form-control" id="confirmacaoSenha" required>
+                        </div>
+                        <div class="d-grid gap-5 d-md-flex justify-content-md-start">
+                            <button type="submit" class="btn btn-primary">Cadastrar</button>
+                            <button type="button" class="btn btn-secondary" id="limparBtn">Limpar</button>
+                        </div>
+                    </form>
+                    <div id="result" class="mt-4"></div>
+                </div>
             </div>
-    </main>
-    <footer class="fs-5">
-        <p>Precisa de ajuda?</p>
-        <p><span>Contacte-nos através do telefone:</span> <span><a href="tel:42991070930">42991070930</a></span></p>
+        </main>
+        <footer class="fs-5">
+            <p>Precisa de ajuda?</p>
+            <p><span>Contacte-nos através do telefone:</span> <span><a href="tel:42991070930">42991070930</a></span>
+            </p>
 
-    </footer>
+        </footer>
+    </div>
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="cadastro.js"></script>

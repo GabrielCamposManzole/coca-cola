@@ -1,14 +1,21 @@
+/* @media (min-width: 761px) and (min-height: 828px) {
+    .form-container {
+        width: 761px;
+        height: 828px;
+        border: 2px solid #007bff;  Apenas para visualização 
+    }
+} */
 main {
-    padding: 3.8rem;
+    padding: 2.8rem;
+}
+
+h2 {
+    margin-top: 1.87rem;
 }
 
 .flecha {
     margin-left: 10px;
     margin-top: 10px;
-}
-
-button {
-    gap: 2em;
 }
 
 a:hover {
@@ -22,9 +29,14 @@ footer {
     background-color: #FF1741;
     text-align: center;
     padding: 20px;
-
 }
 
 footer a {
     color: #212529;
+}
+
+.form-container {
+    max-width: 500px;
+    margin: auto;
+    padding-top: 50px;
 }

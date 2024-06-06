@@ -51,3 +51,34 @@ footer a {
     margin: auto;
     padding-top: 50px;
 }
+
+.tamImput {
+    width: 5em;
+}
+
+#meuInputNumber::-webkit-outer-spin-button,
+#meuInputNumber::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* Estiliza campos válidos */
+input:valid {
+    border-color: #198754;
+    /* Cor verde */
+}
+
+input:invalid {
+    border-color: #dc3545;
+    /* Cor vermelha */
+}
+
+.invalid-feedback {
+    display: none;
+    color: #dc3545;
+}
+
+input:invalid~.invalid-feedback {
+    display: block;
+}

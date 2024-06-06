@@ -31,7 +31,43 @@ document.getElementById('cadastroForm').addEventListener('submit', function (eve
     `;
 });
 
+document.getElementById('cadastroForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+    let isValid = true;
+
+    const cnpjInput = document.getElementById('cnpj');
+    if (cnpjInput.value.length !== 14) {
+        cnpjInput.setCustomValidity("CNPJ deve ter exatamente 14 dígitos.");
+        isValid = false;
+    } else {
+        cnpjInput.setCustomValidity("");
+    }
+
+    if (this.checkValidity() === false || !isValid) {
+        event.stopPropagation();
+    } else {
+        const formData = new FormData(this);
+        let result = '';
+        formData.forEach((value, key) => {
+            result += `${key}: ${value}<br>`;
+        });
+        document.getElementById('result').innerHTML = result;
+    }
+    this.classList.add('was-validated');
+});
+
 document.getElementById('limparBtn').addEventListener('click', function () {
-    const inputs = document.querySelectorAll('#cadastroForm input');
-    inputs.forEach(input => input.value = '');
+    document.getElementById('cadastroForm').reset();
+    document.getElementById('cadastroForm').classList.remove('was-validated');
+    document.getElementById('result').innerHTML = '';
+});
+
+
+
+const input = document.getElementById('meuInputNumber ');
+
+input.addEventListener('input', function () {
+    // Calcula a largura com base na quantidade de caracteres
+    const length = input.value.length;
+    input.style.width = (length + 1) + 'ch';
 });

@@ -20,32 +20,69 @@
                 <div>
                     <img src="https://staextb2cprdeus201.blob.core.windows.net/b2c/Juntos+.svg" alt="#####">
                     <h2 class="mb-4">Formulário de Cadastro</h2>
-                    <form id="cadastroForm">
-                        <div class="mb-3">
-                            <label for="razaoSocial" class="form-label">Razão Social</label>
-                            <input type="text" class="form-control" id="razaoSocial" required autofocus>
+                    <form id="cadastroForm" novalidate>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="razaoSocial" class="form-label">Razão Social</label>
+                                <input type="text" class="form-control" id="razaoSocial" required autofocus>
+                                <span class="invalid-feedback">Por favor, preencha a razão social.</span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="cnpj" class="form-label">CNPJ</label>
+                                <input type="text" class="form-control" id="cnpj" pattern="\d{14}" maxlength="14"
+                                    required>
+                                <span class="invalid-feedback">Por favor, preencha o CNPJ com 14 dígitos.</span>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="cnpj" class="form-label">CNPJ</label>
-                            <input type="number" class="form-control" id="cnpj" required>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="endereco" class="form-label">Endereço</label>
+                                <input type="text" class="form-control" id="endereco" required>
+                                <span class="invalid-feedback">Por favor, preencha o endereço.</span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="numero" class="form-label">Número</label>
+                                <input type="number" class="form-control" id="meuInputNumber" required>
+                                <span class="invalid-feedback">Por favor, preencha o número.</span>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="endereco" class="form-label">Endereço</label>
-                            <input type="text" class="form-control" id="endereco" required>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="telefone" class="form-label">Telefone</label>
+                                <input type="tel" class="form-control" id="telefone" required
+                                    pattern="\(\d{2}\) \d{4,5}-\d{4}">
+                                <span class="invalid-feedback">Por favor, preencha o telefone no formato (xx) xxxx-xxxx
+                                    ou (xx) xxxxx-xxxx.</span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" required>
+                                <span class="invalid-feedback">Por favor, preencha um email válido.</span>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="telefone" class="form-label">Telefone</label>
-                            <input type="tel" class="form-control" id="telefone" required>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="senha" class="form-label">Senha</label>
+                                <input type="password" class="form-control" id="senha" required minlength="8">
+                                <span class="invalid-feedback">A senha deve ter pelo menos 8 caracteres.</span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="confirmacaoSenha" class="form-label">Confirmação de Senha</label>
+                                <input type="password" class="form-control" id="confirmacaoSenha" required
+                                    minlength="8">
+                                <span class="invalid-feedback">A confirmação de senha deve corresponder à senha.</span>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="senha" class="form-label">Senha</label>
-                            <input type="password" class="form-control" id="senha" required>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="dataNascimento" class="form-label">Data de Nascimento</label>
+                                <input type="date" class="form-control" id="dataNascimento" name="dataNascimento"
+                                    min="1900-01-01" max="2023-12-31" required>
+                                <span class="invalid-feedback">Por favor, preencha uma data de nascimento válida entre
+                                    1900-01-01 e 2023-12-31.</span>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="confirmacaoSenha" class="form-label">Confirmação de Senha</label>
-                            <input type="password" class="form-control" id="confirmacaoSenha" required>
-                        </div>
-                        <div class="d-grid gap-5 d-md-flex justify-content-md-start">
+                        <div class="d-grid gap-5 d-md-flex justify-content-md-start mt-3">
                             <button type="submit" class="btn btn-primary">Cadastrar</button>
                             <button type="button" class="btn btn-secondary" id="limparBtn">Limpar</button>
                         </div>
@@ -58,7 +95,6 @@
             <p>Precisa de ajuda?</p>
             <p><span>Contacte-nos através do telefone:</span> <span><a href="tel:42991070930">42991070930</a></span>
             </p>
-
         </footer>
     </div>
 

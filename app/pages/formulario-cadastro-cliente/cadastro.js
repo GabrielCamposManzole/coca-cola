@@ -12,7 +12,7 @@ document.getElementById('cadastroForm').addEventListener('submit', function (eve
     event.preventDefault();
 
     const razaoSocial = document.getElementById('razaoSocial').value;
-    const cnpj = document.getElementById('cnpj').value;
+        const cnpj = document.getElementById('cnpj').value;
     const endereco = document.getElementById('endereco').value;
     const telefone = document.getElementById('telefone').value;
     const senha = document.getElementById('senha').value;

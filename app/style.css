@@ -9,9 +9,6 @@ main {
     flex: 1 0 auto;
 }
 
-nav {
-    color: #000000 !important;
-}
 
 .imagem-header {
     height: 200px;

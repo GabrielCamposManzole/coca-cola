@@ -1,4 +1,4 @@
-class Usuario {
+/* class Usuario {
     constructor(razaoSocial, cnpj, endereco, telefone, senha) {
         this.razaoSocial = razaoSocial;
         this.cnpj = cnpj;
@@ -12,7 +12,7 @@ document.getElementById('cadastroForm').addEventListener('submit', function (eve
     event.preventDefault();
 
     const razaoSocial = document.getElementById('razaoSocial').value;
-        const cnpj = document.getElementById('cnpj').value;
+    const cnpj = document.getElementById('cnpj').value;
     const endereco = document.getElementById('endereco').value;
     const telefone = document.getElementById('telefone').value;
     const senha = document.getElementById('senha').value;
@@ -30,44 +30,69 @@ document.getElementById('cadastroForm').addEventListener('submit', function (eve
         
     `;
 });
-
-document.getElementById('cadastroForm').addEventListener('submit', function (event) {
-    event.preventDefault();
-    let isValid = true;
-
-    const cnpjInput = document.getElementById('cnpj');
-    if (cnpjInput.value.length !== 14) {
-        cnpjInput.setCustomValidity("CNPJ deve ter exatamente 14 dígitos.");
-        isValid = false;
-    } else {
-        cnpjInput.setCustomValidity("");
-    }
-
-    if (this.checkValidity() === false || !isValid) {
-        event.stopPropagation();
-    } else {
-        const formData = new FormData(this);
-        let result = '';
-        formData.forEach((value, key) => {
-            result += `${key}: ${value}<br>`;
-        });
-        document.getElementById('result').innerHTML = result;
-    }
-    this.classList.add('was-validated');
-});
-
-document.getElementById('limparBtn').addEventListener('click', function () {
+ */
+/* document.getElementById('limparBtn').addEventListener('click', function () {
     document.getElementById('cadastroForm').reset();
-    document.getElementById('cadastroForm').classList.remove('was-validated');
     document.getElementById('result').innerHTML = '';
+}); */
+
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('cadastroForm');
+    const limparBtn = document.getElementById('limparBtn');
+    const resultDiv = document.getElementById('result');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        if (form.checkValidity()) {
+            const dados = {
+                razaoSocial: document.getElementById('razaoSocial').value,
+                cnpj: document.getElementById('cnpj').value,
+                endereco: document.getElementById('endereco').value,
+                numero: document.getElementById('meuInputNumber').value,
+                telefone: document.getElementById('telefone').value,
+                email: document.getElementById('email').value,
+                senha: document.getElementById('senha').value,
+                confirmacaoSenha: document.getElementById('confirmacaoSenha').value,
+                dataNascimento: document.getElementById('dataNascimento').value
+            };
+
+            let cadastros = JSON.parse(localStorage.getItem('cadastros')) || [];
+            cadastros.push(dados);
+            localStorage.setItem('cadastros', JSON.stringify(cadastros));
+
+            alert('Dados cadastrados com sucesso!');
+            form.reset();
+        } else {
+            form.classList.add('was-validated');
+        }
+    });
+
+    limparBtn.addEventListener('click', function() {
+        form.reset();
+        localStorage.removeItem('cadastros');
+        resultDiv.innerHTML = '';
+        form.classList.remove('was-validated');
+    });
+
+    // Carregar e exibir dados ao carregar a página
+    const cadastros = JSON.parse(localStorage.getItem('cadastros')) || [];
+    if (cadastros.length > 0) {
+        cadastros.forEach(dados => {
+            resultDiv.innerHTML += `
+                <p><strong>Razão Social:</strong> ${dados.razaoSocial}</p>
+                <p><strong>CNPJ:</strong> ${dados.cnpj}</p>
+                <p><strong>Endereço:</strong> ${dados.endereco}</p>
+                <p><strong>Número:</strong> ${dados.numero}</p>
+                <p><strong>Telefone:</strong> ${dados.telefone}</p>
+                <p><strong>Email:</strong> ${dados.email}</p>
+                <p><strong>Data de Nascimento:</strong> ${dados.dataNascimento}</p>
+                <hr>
+            `;
+        });
+    } else {
+        resultDiv.innerHTML = '<p>Nenhum dado cadastrado encontrado.</p>';
+    }
 });
 
 
 
-const input = document.getElementById('meuInputNumber ');
-
-input.addEventListener('input', function () {
-    // Calcula a largura com base na quantidade de caracteres
-    const length = input.value.length;
-    input.style.width = (length + 1) + 'ch';
-});

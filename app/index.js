@@ -1,4 +1,4 @@
-/* $$ = function (id) {
+$$ = function (id) {
     return document.getElementById(id);
 }
 
@@ -11,7 +11,7 @@ window.onload = function () {
             sessionStorage.contador = 1;
         }
     }
-} */
+}
 
 let = {
     nome: 'Gabriel Campos Maznoli',

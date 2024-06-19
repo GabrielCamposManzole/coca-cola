@@ -36,7 +36,7 @@ document.getElementById('cadastroForm').addEventListener('submit', function (eve
     document.getElementById('result').innerHTML = '';
 }); */
 
-document.addEventListener('DOMContentLoaded', function() {
+/* document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('cadastroForm');
     const limparBtn = document.getElementById('limparBtn');
     const resultDiv = document.getElementById('result');
@@ -94,5 +94,98 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+ */
 
 
+$(document).ready(function () {
+    // Aplica as máscaras de entrada
+    $('#cnpj').mask('00.000.000/0000-00', {
+        reverse: true
+    });
+    $('#telefone').mask('(00) 00000-0000');
+
+    $('#cadastroForm').on('submit', function (event) {
+        event.preventDefault();
+
+        const razaoSocial = $('#razaoSocial').val();
+        const cnpj = $('#cnpj').val();
+        const endereco = $('#endereco').val();
+        const numero = $('#numero').val();
+        const telefone = $('#telefone').val();
+        const email = $('#email').val();
+        const senha = $('#senha').val();
+        const confirmacaoSenha = $('#confirmacaoSenha').val();
+        const dataNascimento = $('#dataNascimento').val();
+
+        const servicos = $('input[name="servico"]:checked').map(function () {
+            return this.value;
+        }).get();
+        const genero = $('input[name="genero"]:checked').val();
+        const cidade = $('#cidade').val();
+
+        // Validação simples
+        if (senha !== confirmacaoSenha) {
+            alert('A senha e a confirmação de senha não correspondem.');
+            return;
+        }
+
+        const dadosCadastro = {
+            razaoSocial,
+            cnpj,
+            endereco,
+            numero,
+            telefone,
+            email,
+            senha,
+            dataNascimento,
+            servicos,
+            genero,
+            cidade
+        };
+
+        // Recupera os dados existentes
+        let cadastros = JSON.parse(localStorage.getItem('cadastros')) || [];
+        cadastros.push(dadosCadastro);
+        localStorage.setItem('cadastros', JSON.stringify(cadastros));
+
+        // Limpa o formulário
+        $('#cadastroForm')[0].reset();
+        $('#result').hide().html('<div class="alert alert-success">Cadastro realizado com sucesso!</div>').fadeIn();
+
+        // Exibir o último cadastro
+        exibirUltimoCadastro();
+    });
+
+    $('#limparBtn').on('click', function () {
+        localStorage.clear();
+        alert('Dados limpos com sucesso!');
+        $('#result').html('');
+    });
+
+    function exibirUltimoCadastro() {
+        const cadastros = JSON.parse(localStorage.getItem('cadastros')) || [];
+        if (cadastros.length > 0) {
+            const dados = cadastros[cadastros.length - 1];
+            const html = `
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <p><strong>Razão Social:</strong> ${dados.razaoSocial}</p>
+                        <p><strong>CNPJ:</strong> ${dados.cnpj}</p>
+                        <p><strong>Endereço:</strong> ${dados.endereco}</p>
+                        <p><strong>Número:</strong> ${dados.numero}</p>
+                        <p><strong>Telefone:</strong> ${dados.telefone}</p>
+                        <p><strong>Email:</strong> ${dados.email}</p>
+                        <p><strong>Data de Nascimento:</strong> ${dados.dataNascimento}</p>
+                        <p><strong>Serviços:</strong> ${dados.servicos.join(', ')}</p>
+                        <p><strong>Gênero:</strong> ${dados.genero}</p>
+                        <p><strong>Cidade:</strong> ${dados.cidade}</p>
+                    </div>
+                </div>
+            `;
+            $('#result').hide().html(html).fadeIn();
+        }
+    }
+
+    // Exibir o último cadastro ao carregar a página
+    exibirUltimoCadastro();
+});

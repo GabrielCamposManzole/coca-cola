@@ -8,6 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="cadastro.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 </head>
 
 <body>
@@ -29,9 +31,8 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="cnpj" class="form-label">CNPJ</label>
-                                <input type="text" class="form-control" id="cnpj" pattern="\d{14}" maxlength="14"
-                                    required>
-                                <span class="invalid-feedback">Por favor, preencha o CNPJ com 14 dígitos.</span>
+                                <input type="text" class="form-control" id="cnpj" required>
+                                <span class="invalid-feedback">Por favor, preencha o CNPJ.</span>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -42,17 +43,15 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="numero" class="form-label">Número</label>
-                                <input type="number" class="form-control" id="meuInputNumber" required>
+                                <input type="number" class="form-control" id="numero" required>
                                 <span class="invalid-feedback">Por favor, preencha o número.</span>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="telefone" class="form-label">Telefone</label>
-                                <input type="tel" class="form-control" id="telefone" required
-                                    pattern="\(\d{2}\) \d{4,5}-\d{4}">
-                                <span class="invalid-feedback">Por favor, preencha o telefone no formato (xx) xxxx-xxxx
-                                    ou (xx) xxxxx-xxxx.</span>
+                                <input type="text" class="form-control" id="telefone" required>
+                                <span class="invalid-feedback">Por favor, preencha o telefone.</span>
                             </div>
                             <div class="col-md-6">
                                 <label for="email" class="form-label">Email</label>
@@ -63,13 +62,12 @@
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="senha" class="form-label">Senha</label>
-                                <input type="password" class="form-control" id="senha" required minlength="8">
+                                <input type="password" class="form-control" id="senha" required>
                                 <span class="invalid-feedback">A senha deve ter pelo menos 8 caracteres.</span>
                             </div>
                             <div class="col-md-6">
                                 <label for="confirmacaoSenha" class="form-label">Confirmação de Senha</label>
-                                <input type="password" class="form-control" id="confirmacaoSenha" required
-                                    minlength="8">
+                                <input type="password" class="form-control" id="confirmacaoSenha" required>
                                 <span class="invalid-feedback">A confirmação de senha deve corresponder à senha.</span>
                             </div>
                         </div>
@@ -82,22 +80,80 @@
                                     1900-01-01 e 2023-12-31.</span>
                             </div>
                         </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Serviços</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="Consultoria"
+                                        id="servicoConsultoria">
+                                    <label class="form-check-label" for="servicoConsultoria">
+                                        Consultoria
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="Desenvolvimento"
+                                        id="servicoDesenvolvimento">
+                                    <label class="form-check-label" for="servicoDesenvolvimento">
+                                        Desenvolvimento
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="Suporte" id="servicoSuporte">
+                                    <label class="form-check-label" for="servicoSuporte">
+                                        Suporte
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Gênero</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="genero" id="generoMasculino"
+                                        value="Masculino" required>
+                                    <label class="form-check-label" for="generoMasculino">
+                                        Masculino
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="genero" id="generoFeminino"
+                                        value="Feminino">
+                                    <label class="form-check-label" for="generoFeminino">
+                                        Feminino
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="genero" id="generoOutro"
+                                        value="Outro">
+                                    <label class="form-check-label" for="generoOutro">
+                                        Outro
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="cidade" class="form-label">Cidade</label>
+                                <select class="form-select" id="cidade" required>
+                                    <option value="">Selecione uma cidade</option>
+                                    <option value="São Paulo">São Paulo</option>
+                                    <option value="Rio de Janeiro">Rio de Janeiro</option>
+                                    <option value="Curitiba">Curitiba</option>
+                                    <option value="Belo Horizonte">Belo Horizonte</option>
+                                </select>
+                                <span class="invalid-feedback">Por favor, selecione uma cidade.</span>
+                            </div>
+                        </div>
                         <div class="d-grid gap-5 d-md-flex justify-content-md-start mt-3">
                             <button type="submit" class="btn btn-primary">Cadastrar</button>
                             <button type="button" class="btn btn-secondary" id="limparBtn">Limpar</button>
-                            <button type="button" class="btn btn-info"
-                                onclick="location.href='/app/pages/perfil-cliente/perfil.html'">Ver
-                                Cadastros</button>
                         </div>
                     </form>
-                    <!-- <div id="result" class="mt-4"></div> -->
+                    <div id="result" class="mt-4"></div>
                 </div>
             </div>
         </main>
         <footer class="fs-5">
             <p>Precisa de ajuda?</p>
-            <p><span>Contacte-nos através do telefone:</span> <span><a href="tel:42991070930">42991070930</a></span>
-            </p>
+            <p><span>Contacte-nos através do telefone:</span> <span><a href="tel:42991070930">42991070930</a></span></p>
         </footer>
     </div>
 

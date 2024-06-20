@@ -31,7 +31,7 @@ input {
     height: 40px
 }
 
-button {
+.button-entrar {
     margin: 2em 0;
     height: 3.8rem;
     width: 29.6rem;

@@ -2,7 +2,11 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-   
+
+}
+
+form>button {
+    gap: 5em;
 }
 
 .carousel-item img {

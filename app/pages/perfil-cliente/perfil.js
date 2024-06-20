@@ -1,4 +1,4 @@
-/* document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
     const resultDiv = document.getElementById('result');
 
     function carregarDados() {
@@ -34,10 +34,10 @@
     }
 
     carregarDados();
-}); */
+});
 
 
-$(document).ready(function () {
+/* $(document).ready(function () {
     const resultDiv = $('#result');
 
     function carregarDados() {
@@ -77,4 +77,4 @@ $(document).ready(function () {
     }
 
     carregarDados();
-});
+}); */

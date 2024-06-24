@@ -49,16 +49,22 @@ a:hover {
 }
 
 footer {
-    height: 8rem;
     margin-top: auto;
-    background-color: #FF1741;
+    background-color: #e9c9ce;
     text-align: center;
-    padding: 20px;
+    padding: 0.65rem;
+
 
 }
 
 footer a {
     color: #212529;
+}
+
+.centraDiv {
+    font-size: 0.7em;
+    font-weight: 800;
+    margin-top: 1.5rem;
 }
 
 @media (min-width: 811px) {

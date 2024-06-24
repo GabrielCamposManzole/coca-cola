@@ -47,7 +47,7 @@ footer a {
     color: #212529;
 }
 
-.centraDiv {
+.centra {
     font-size: 0.7em;
     font-weight: 800;
     margin-top: 1.5rem;
@@ -85,21 +85,6 @@ input:invalid:not(:placeholder-shown) {
 .error-text {
     display: none;
 }
-
-/* Exibir as mensagens de erro para campos inálidos */
-input:invalid:not(:placeholder-shown)~.error-text {
-    display: block;
-}
-
-select:invalid:default~.error-text {
-    display: block;
-}
-
-/* Esconder as mensangens de erro para campos válidos */
-input:valid~.error-text {
-    display: none;
-}
-
 
 .invalid-feedback {
     display: none;
@@ -160,21 +145,6 @@ input:invalid~.invalid-feedback {
 }
 
 /* Estilos para o botão de fechar */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-
 .close {
     color: #aaa;
     float: right;

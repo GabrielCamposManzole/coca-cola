@@ -146,6 +146,38 @@ jQuery(function ($) {
         }
     }
 
+    // Função para validar campos extras com expressões regulares
+    function validarCamposExtras() {
+        const cnpjRegex = /^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/;
+        const telefoneRegex = /^\(\d{2}\) \d{5}-\d{4}$/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const dataNascimentoRegex = /^\d{4}-\d{2}-\d{2}$/;
+
+        const cnpj = $('#cnpj').val();
+        const telefone = $('#telefone').val();
+        const email = $('#email').val();
+        const dataNascimento = $('#dataNascimento').val();
+
+        if (!cnpj.match(cnpjRegex)) {
+            return false;
+        }
+
+        if (!telefone.match(telefoneRegex)) {
+            return false;
+        }
+
+        if (!email.match(emailRegex)) {
+            return false;
+        }
+
+        if (!dataNascimento.match(dataNascimentoRegex)) {
+            return false;
+        }
+
+        return true;
+    }
+
+
     // Função para salvar dados no localStorage
     function salvarDadosNoLocalStorage(dados) {
         let cadastros = JSON.parse(localStorage.getItem('cadastros')) || [];

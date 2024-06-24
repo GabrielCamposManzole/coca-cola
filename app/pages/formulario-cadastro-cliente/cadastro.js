@@ -1,7 +1,9 @@
 jQuery(function ($) {
-// Aplicar máscaras usando jQuery Mask Plugin
-$('.cnpj-mask').mask('00.000.000/0000-00', { reverse: true });
-$('.telefone-mask').mask('(00) 00000-0000');
+    // Aplicar máscaras usando jQuery Mask Plugin
+    $('.cnpj-mask').mask('00.000.000/0000-00', {
+        reverse: true
+    });
+    $('.telefone-mask').mask('(00) 00000-0000');
 
     const form = $('#cadastroForm');
     const limparBtn = $('#limparBtn');
@@ -11,20 +13,24 @@ $('.telefone-mask').mask('(00) 00000-0000');
     const modal = $('#sucessoModal');
     const span = $('.close');
 
+    // Função para exibir o modal de sucesso
     function showModal() {
         modal.css('display', 'block');
     }
 
+    // Evento para fechar o modal ao clicar no botão de fechar
     span.on('click', function () {
         modal.css('display', 'none');
     });
 
+    // Evento para fechar o modal ao clicar fora dele
     $(window).on('click', function (event) {
         if (event.target === modal[0]) {
             modal.css('display', 'none');
         }
     });
 
+    // Função para exibir os dados salvos do localStorage
     function exibirDadosSalvos() {
         const cadastros = JSON.parse(localStorage.getItem('cadastros')) || [];
         const resultDiv = $('#result');
@@ -53,8 +59,10 @@ $('.telefone-mask').mask('(00) 00000-0000');
         }
     }
 
+    // Chamar a função para exibir os dados salvos ao carregar a página
     exibirDadosSalvos();
 
+    // Evento de submit do formulário
     form.on('submit', function (event) {
         event.preventDefault();
         form.addClass('was-validated');
@@ -70,26 +78,31 @@ $('.telefone-mask').mask('(00) 00000-0000');
                 senha: $('#senha').val(),
                 confirmacaoSenha: $('#confirmacaoSenha').val(),
                 dataNascimento: $('#dataNascimento').val(),
-                genero: $('input[name="genero"]:checked').val() 
+                genero: $('input[name="genero"]:checked').val()
             };
 
-
+            // Salvar os dados no localStorage
             salvarDadosNoLocalStorage(dados);
 
+            // Exibir mensagem de sucesso
             resultDiv.text('Dados cadastrados com sucesso!');
 
+            // Limpar o formulário e desabilitar o botão de submit
             form[0].reset();
             form.removeClass('was-validated');
             submitBtn.prop('disabled', true);
 
+            // Mostrar o modal de sucesso
             showModal();
 
+            // Atualizar a exibição dos dados salvos
             exibirDadosSalvos();
         } else {
             resultDiv.text('');
         }
     });
 
+    // Evento de clique no botão "Limpar"
     limparBtn.on('click', function () {
         form[0].reset();
         form.removeClass('was-validated');
@@ -97,6 +110,7 @@ $('.telefone-mask').mask('(00) 00000-0000');
         submitBtn.prop('disabled', true);
     });
 
+    // Validar os campos do formulário ao perderem o foco
     const campos = form.find('input, select');
     campos.each(function () {
         $(this).on('blur', function () {
@@ -104,6 +118,7 @@ $('.telefone-mask').mask('(00) 00000-0000');
         });
     });
 
+    // Função para validar todos os campos do formulário
     function validarCampos() {
         let formValido = true;
         campos.each(function () {
@@ -118,6 +133,7 @@ $('.telefone-mask').mask('(00) 00000-0000');
         }
     }
 
+    // Função para validar se as senhas coincidem
     function validarSenha() {
         const senha = $('#senha');
         const confirmacaoSenha = $('#confirmacaoSenha');
@@ -130,12 +146,14 @@ $('.telefone-mask').mask('(00) 00000-0000');
         }
     }
 
+    // Função para salvar dados no localStorage
     function salvarDadosNoLocalStorage(dados) {
         let cadastros = JSON.parse(localStorage.getItem('cadastros')) || [];
         cadastros.push(dados);
         localStorage.setItem('cadastros', JSON.stringify(cadastros));
     }
 
+    // Função global para excluir um cadastro pelo índice
     window.excluirCadastro = function (index) {
         let cadastros = JSON.parse(localStorage.getItem('cadastros')) || [];
         cadastros.splice(index, 1);
